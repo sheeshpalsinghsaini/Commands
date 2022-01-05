@@ -1,0 +1,192 @@
+---------------------------RedHad------------------------
+{
+    shortcuts:
+        1. ctrl + l     :clear terminal
+        2. (.) -> represent current directory.
+        3. (..)-> represent previous directory.
+        4. history                 //show history of commands
+        5. !107                    //run 107 number command which you run, show in history.
+        6. !!                      //execute previous command.
+        7. history -c               //clear all history.
+        8. pwd                      //print present working directory.
+        9. du -sh                   //show size of current directory.
+        10.press ctrl+c or del key.***** -> it terminate command.
+
+}
+
+
+Rules to Follow for Linux:
+        * All UNIX commands must always be entered in small case letters.
+        * Between the command name and the options that may be available with the command there must 
+          always be a space or a tab, for example, ls -l. here is the command whereas -l is the option and the
+          two have been separated by space. the option is usually preceded by a minus(-) sign. The option 
+          available with a command are often known as switches.
+        *Two or more options available with command can usually be combined, for example, the command 
+            ls -l -a is same as ls -la.********
+        * if you make a typing mistake, press backspace to erase characters Don't try back using arrow keys and then
+          attenpt deleting using the del key.
+        * To cancel the entire command before you press Enter, press ctrl+c or del key.***** -> it terminate command.
+
+
+    date    //show current date.
+    date --date="-1 day"    //yesterday date.
+    date --date="tomorrow"
+    date --date="year ago"
+    date --date="2 year ago"
+
+    date +%F    //show full day.
+    date +%D-%M-%Y      //customise day/month/year.
+    date +%D-%Y         //show day and month.
+    date +%d-%m-%Y      //show in ddmmyy formate.
+
+    touch file-`date+%d-%m-%y`      //create file with adding time no conflict name.
+    touch -> create empty file.
+    touch file1 file2 file3 ......
+    touch text{1..100}.text 
+    
+    cat file.text   //show content inside file.text
+    cat>file.text
+    //add content into file.text if file not exist then it create it. earse previous data.
+    cat>>file.text 
+    //if data already present then append into the last of content.[ctrl+d->for out]
+    cat -n file.text        //show content with number line.
+    cat -b file.text        //for empty line not give any number.
+
+    cp -> for copy content.
+    cp ./source ./destination
+    cp f dir1
+    cp f1 f2 f3   dir1          //f1tof3 copy into dir1.
+    
+    we can use relative or absolute path for copy data from anywhere in the system.
+
+    cp *.text Downloads/            //all text file copy inside Downloads.
+    ls -ltr file.text               //list content in details
+
+    cp -pv file Downloads/          //keep all things are as original. pv->preserve.
+    cp -Rv Desktop /Downloads       //copy directory .  
+    cp -rv dir1 dir2                //work same 
+
+
+    mkdir dir dir2 dir3....         //create directory.
+    mkdir -p dir/dir/dir/dir/dir/dir/.. //this is parent directory sturcture.
+    mkdir dir{1..100}               //create 100 directory withing current directory.
+    rmdir dir                       //remove empty directory.
+
+
+    mv source destination       //move soruce to destination && use also for rename file or directory.
+    rm -i file1                 //remove file with the confimation by -i.
+    rm -f file1                 //forcefully deleted not asking confimation.
+
+    rm -r dir                   //delete directory also.
+    rm -rf dir                  //delete directory with forcefully
+
+
+    cd Downloads                //change directory.
+    cd ../../                   //for go back directory
+    cd ~                        //direct go to home directory
+    cd /                        //direct go to root directory.
+    cd .                        //not go anywhere
+    cd ..                       //go to previous
+    if current dir is / then it doesn't go anywhere again.
+
+
+
+    ls      //list directory
+    ls ./dir/dir    //show list inside directory.
+    ls -l       //show in long form list. with full details.
+    ls -d        //list only directory.
+    ls -m       //show content seprated by comma.
+    
+    
+    df          //show memory details external and internal.
+    df -lh      //human readable. partion size in GB.
+    df -T       //show with path.
+
+    who         //show who is currently login.
+    who -r 
+    who -H      //show details who logedin when login 
+    who -a      //show complete details.
+    w           //same with details.
+
+
+    ps      //list out current running.
+    ps -aux   //show how many process are running in details.
+    
+
+    tar ----> zip/compress file.
+    du --> show directy size. with content path.
+    du -sh    //show only size 
+
+    tar -cvzf name.tar.gz /path-where-to-store.
+    tar -xvf name.tar.gz //extract into current directory.
+    tar -xvf name.tar.gz /path    //extract another location.
+
+    scp ---> copy to server
+    scp name.tar.gz remote/server/path.
+    scp xy.tar.gz 192.168.0.189:/home/developer     //copy in my local server.
+
+    find / -iname xyz.tar.gz  //find where is locate 'iname -> ignore case sensivity'.
+    fint /home iname xyz.tar.gz   //give you path of file.
+
+
+
+
+
+    ------------------------------ Redirecting output to a file or program -----------------
+ls ->input
+list content ->output   //maybe some time occue error when input wrong.
+
+          method          |  Alphabetic  |  Numerical value  |   Symbolic value 
+          standard input  |  stdin       |     0             |      <
+          standard output |  stdout      |     1             |      >
+          standard error  |  stderr      |     2             |      2>
+          
+    
+
+    Redirect standard errors:
+    ls /root 2> /tmp/errors.text        //if error appear then get into /tmp/errors.text file
+    cat /tmp/errors.text                //if error get then it show that error.
+    
+    ls /home/developer 2> /tmp/errors   //if error not get then show output result.
+
+    
+    Redirect standard outputs:
+    /home/developer >> /tmp/errors.text 2>&1   //Redirect output and error into /tmp/errors.text.
+
+    >  ----> resetn all rpevious content. then Redirect output.
+    >> ----> appent Redirect output into file.
+
+    date > timestamp.text     //date Redirect into timestamp.text file in current directory.
+    cat stdin > /tmp/output 2> /tmp/errors    //if get error then preseve into error and if get output then get into output.
+    cat stdin > /tmp/output 2>&1              //output and error Redirect to output.
+
+    Note: 2>[for error]&1[for output.]
+
+    cat stdin >> /tmp/output 2>&1     //append output & errors.
+
+
+
+
+
+
+
+    -------------------------------------- grep command with regular expression --------------------
+    
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+   
+
+

@@ -1,0 +1,608 @@
+---------------------------------- Linux File System-----------------------------
+/ --> represent to root
+~ --> represent user home directory.
+command : an instruction in text form.
+
+        1. bin -> here linux command are store in utility in binary form.
+        2. boot -> here linux booting file are present.
+        3. dev -> it store specific file related to device. like HDD, painter etc.
+                if we do partition of our HDD then it come in use.
+        4. etc[editable text configuration] -> it store system program and configuration file and it need for user and root.
+        5. home -> it containe information of all user and groups.
+        6. lib[library] -> it store data library for required running an application in system.
+        7. lib64 -> it also store data library for compiler in 64 bit.
+        8. media -> details of all removable device like cd/dvd,pd,hdd etc.
+        9. mnt ->it is a mount dir. all mounted device store here.
+        10. opt -> optional data on app. it store data of app.
+        11. proc ->processor, it contain linux karnal live system file.
+            it contain logical and physical information  of connecting device 
+        12. root -> like administrative. it's super user and it have all permission.
+        13. run -> when system is start then all running file store here related to system.
+        14. sbin -> system bin, it accessible only by root. it contains system binary files.
+        15. tmp -> [temporary file] it store all temporary files in linux. it automaticaly delete 
+            after 10 days.
+        16. usr -> it store all binary file or folder like bin, sbin etc
+        17. var -> it is very important. it actualy genarte all log.
+                    [it store all types of errors].it change time to time 
+        18. srv -> service data, user specific www,rsynch, etc.
+        19. sys -> contain information related to hardware.
+
+
+        wher we store file in an organise way then it known as Directory structure.
+                        Linux Directory structure
+
+
+
+
+                                                      root[/] -> this is base directory.
+            [uid=0(root) gid=0(root) groups=0(root),4(adm),20(dialout),120(wireshark),142(kaboxer)] -->id info of /
+                                                        |
+                                                        |
+      --------------------------------------------------------------------------------------------------------
+      |     |      |      |      |      |    |      |     |      |     |     |      |      |     |    |      |
+    /bin  /proc  /boot  /root  /dev  /sbin  /etc  /src  /home  /sys  /lib  /tmp  /media  /usr  /mnt  /var  /opt 
+                          |
+                        [this is for root work]
+
+
+
+        / -> in this dir. only root user can change, normal user can not change this files.
+
+        HDD transer data in the form of block and like mic,ports transer data in the form of character.
+
+
+
+
+
+
+
+
+--------------------------------------------- Linux Commands ------------------------------------
+
+    Terminal : this is an interface/window where you write some instruction shell take these instruction & give to kernal. 
+                and karnal give some output on the basis of it.[window/place for write command]
+    
+    shell : is a program. which take command through terminal and convert to system readable form and 
+            handover to the kernal vice versa.
+            there are lots of shell are in linux check it by 
+            // echo $0 or echo $SHELL.
+            example:   echo $0          |     echo $SHELL
+                      /usr/bin/zsh      |     /usr/bin/zsh
+
+    command : an instruction in text form.        
+
+    ls -> command.
+    ls -a -> command with option[-a -> option]
+    ls -a /etc command with option and argument.
+
+    kernal : Kernel is central component of an operating system that manages operations of computer and hardware
+            [it take command from shell and send to hardware]
+            basicaly it works through hardware acoording to command.
+
+    . -> represent current directory.
+    .. -> represent previous directory.
+
+
+    cd /            //change directory to root.
+
+    cd ~            //change directory to home dir.
+
+    pwd             //print working directory.
+
+    cd ./dir/dir...... //go to ahead in directory.
+
+    cd ../../../........ //come back to directory. 
+
+    cid ../../dir/dir/../dir..... //zic zac move in directory.
+
+    mkdir -p dir/dir1/dir2/dir3.... //p->represent painter dir here is dir.
+
+
+
+    /home/Desktop/dir1/dir2 ------> this is root absoulte path.
+    from any dir.
+
+    ./dir1/dir2.. -----> this is relative path.
+
+    ls -->list file and directory in a dir.
+    drwxr-xr-x 807 developer developer   36864 Dec 31 01:08 node_modules      //
+    -rw-r--r--   1 developer developer     808 Dec 31 00:19 package.json
+
+        [owner]   [group]   [other]
+    d    rwx       r-x        r-x 
+
+    rwx -these are the permission to usr/group/other
+    r -> read permission
+    w -> write permission
+    x -> execution permission
+    - -> no permission
+
+
+
+    d-> represent directory.
+    - -> represent a file.
+
+    ls f*           //show only those file & folder which start with f.
+    ls -lh          //list with humand readable form in size.
+    ll              //list in long format.
+
+    ls -Sl          //show list like bigger first then smaller.
+    ls -t           //which file become firt show first, and become previous show in last.
+
+    -------------------------------------------------------------------------
+    cp & mv command.
+    cp -> copy
+    mv -> move
+
+    cp source destination
+    cp f1 dir           //f1 copy into dir.
+    cp -i f2 dir        //copy f2 in intractive mode
+    cp f* dir           //which start with f copy to all in dir.
+
+    mv f1 dir           //move f1 to dir 
+
+    rm f1               //remove f1.
+    rm -i f7            //remove f7 with ask.
+
+    rmdir -> can only remove empty directory.
+    rm -rf dir          //remove dir with recursivly and force fully
+
+    id      //show current usrer id,gid and complete details.
+
+    whoami  //show user name.
+
+    date    //show current date.
+
+    cal     //show calander of current month.
+    cal 2020 //show calander of 2020
+
+    //for rename the file and folder we used move command.
+    mv f4 demo     //now f4 name is demo.
+
+    --------------------file editing[nano,vim]--------------
+    1. vim [vi improved] vi -> visual interface.
+            navigation commands.
+                - cut ---> dd
+                - copy --> yy
+                - paste --> pp
+                - undo --> uu
+        -insert mode -------> press i from keyboard[editing]
+        -last line mode ----> press esc key and type: and after that
+                                :w -> write the data.
+                                :wq -> write and quit
+                                :q! -> quit without saving
+                                :x -> write and quit.
+        syntax: vim fileName //if file exist here then open it otherwise create new file.
+            example: vim test.
+
+    2. nano editor
+        ^ -> represent ctl.
+        M -> represent alt.
+        -> all shortcut given bottom in nano editor.
+
+    
+
+
+
+
+
+
+    ----------------- Manage users and groups in Linux----------------
+        * what is user and types of users
+        * Linux Groups and types of users
+        * Managing user and group databases.
+
+        A usr or account of a system is uniquely identifyed by a numerical number called Uesr ID(UID)
+        [one user can't access data of other user.]
+
+        There are three types of users:
+            1-Super User(0) UID : 0
+                -it have all permission it create normal user. 
+            2-System Users(1-999) UID : 1 to 999[they are not related to super user & normal user]
+                whatever service we are use then a system user create for that. automaticaly.
+                System users created by itself in backend.
+            3-Normal User(1000+)
+
+            when we add user in system then what changes are happens.
+              1. four file are affected.
+                    -/etc/passwd //here is all details about user
+                    -/etc/shadow //user passwd stored here in encripted form.
+                    -/etc/group  //all groups details is here.
+                    -/etc/gshadow   //groups passwd details here in encripted form.
+
+            ---------------how to add user
+            adduser sheeshpal   //create a user with sheeshpal name.
+            //it ask some details at creation time like passwd.
+
+
+            ________________________________
+            1. cat /etc/passwd | grep sheeshpal            //grep use for filter data acoording to give data. like sheeshpal.
+
+            sheeshpal:x:1001:1001:Sheeshpal Singh Saini,31,8979728288,7417512566,moh. katra mandi dhanaura:/home/sheeshpal:/bin/bash
+            usr_Name  |  UID  GID -------------------------Comments---------------------------------------  home_dir        default shell which is asgin.
+                      |
+                this is for password
+
+
+            ________________________________
+            2. cat /etc/shadow | grep sheeshpal
+            sheeshpal:$y$j9T$WZpgdaJ1gitDeqpDaGEgw1$7QDH7Cg68HKJJ.YL/uYH4ollRvL/nr7EkwtVJvdtRB5:18992:0:99999:7:::
+                      -------------------password encrypted in salted form---------------------
+
+            what is salt encryption
+            ans: if passwd of two user is same the for make difference between them use it.
+
+            username        password
+            user1           password123
+            user2           password123
+
+            username  |  salt Value[random number] |  string to be hashed  | Hashed value = SHA256(password+salt value)
+            -----------------------------------------------------------------------------------------------------------
+            user1     |   6549846135876548435      |  passwordESOI6876sdkl | DKAJSDOFdaoisdf+7864654soid845468SLDJFALS
+            user2     |   6798432186798453214      |  passwordDSIsodi687sd | 984DKJOIslkdjoi8&ASJDH^89465alskdfjas9856s
+
+            _________________________________
+            3. cat /etc/group | grep sheeshpal
+                sheeshpal:x:1001:
+
+
+            
+
+            ----------------------for create manual user and password 
+            useradd userName
+            sheesh:!:18992:0:99999:7:::         // ! mark indicate that yet no password.
+            passwd  userName    //ask for password for userName.
+            sheesh:$y$j9T$i2wAOVYg8UPTFC0nXO7mQ/$KFB/hhtTz5J6ibBjRvtznvH.5VTBTdSFDBVYHaTOf/C:18992:0:99999:7::: //now passwd added.
+
+
+
+
+            -------------------- Linux Groups
+            Linux group is a mechanism to organize a collection of users.[they have same permission and right]
+            There are two types of Groups:
+                1. Primary Group //if user are not add then system assign a default group to that user that is Primary group.
+                2. Secondary Group //if user add gorup manualy then it is Secondary
+                
+                cat /etc/group   //show all gorups details.
+                groupadd groupName  //create a group with groupName.
+                
+                groupadd linux  //crate a group with linux name.
+                cat /etc/group | linux 
+                linux:x:1003:
+                  |   |  GID 
+                  |   password filter
+                  group name.
+
+
+                  Note: when we create a group then only two file are affeted 
+                        - group         //contans details of all groups.
+                        - gshadow       //contain passwrod details of gorups.
+
+
+                ______________________
+                add member into group.
+                groupmems -a sheesh -g linux
+                
+                -a ->which user
+                -g ->in which group.
+
+                gpasswd -A sheesh linux         //sheesh is the administrative in linux group.
+
+
+
+                ----------------------group delete
+                groupddel sheesh    //we can not delete primary group.
+
+                //we can delete only secondary group.
+                groupdel linux          //delete linux group.
+
+
+                for delete primary group we need to delete user from there.
+                userdel -r sheesh       //everything remove related to sheesh.
+
+                
+
+                su userName         //switch into userName user.
+
+                id sheesh           //it show id of sheesh user.
+
+                users               //show last current user.
+                last                //show who is login in last time. it show all login details.
+
+
+
+-------------------------------------------------- Manage Network -------------------------------------------
+ifconfig            //show network details ethernet and wireless 
+ifconfig eth0
+ifconfig lo
+ifconfig wlan0  //showp specific network ip.
+
+ip addr         //show loop back address.
+
+ping --->command used for check connectivity of network
+ping google.com  //it continue ping so for break it use ctrl + c or ctrl + z.
+ping -c 3 google.com    //stop after 3 packet transfer.
+
+netstat -nr         //show routing table
+route               //show routing table
+
+
+
+
+----------------------------------- serach package, install package and remove package-----------------------
+for install packages in linux we used apt[advance packaging tool].
+
+
+apt list            //show availabe package in machine.[it sow both install & not install]
+apt list --installed  //show only installed tool.
+dpkg -l         //show packages in tabular form .
+apt-cache pkgnames  //it also show packages names.
+apt-cache search vscodium   //it search into packages
+apt-cache pkgnames vscodium //only show package names.
+apt-cache showpkg vsftpd    //show package dependancies.
+
+
+
+
+sudo apt install toolName       //install tools
+
+sudo apt-get remove toolName    //remove tools 
+
+sudo apt-get purge toolName      // remove occupie space by tool.
+
+or 
+sudo apt-get remove --purge toolName    //remove too and space as well as.
+
+sudo apt-get udpate     //update system.
+sudo apt-get upgrade    //upgrade system.
+
+all default package fetch from "/etc/apt/sources.list"
+
+
+
+
+
+
+
+-------------------------------------------Linux File Permission---------------------------------------
+In linux, each file is associated with an owner and a group and assigned with permission access rights 
+for three different classes of users:
+    * The file owner.
+    * The group members.
+    * Ohters (everybody in the network)
+
+
+        Types of permission
+        -------------------
+        Abbreviation        |          Description
+        r(read)             |          Permission to read a file.
+                            |          Permission to read a directory
+                            |          
+        w(write)            |          Permission to delete or modify a file.
+                            |          Permission to delete or modify file in a directory.
+                            |
+        x(execute)          |          Permission to execute a file/script
+                            |          Permission to read a directory.  
+
+
+two way to change permission.
+    1. Changing permission by symbolic method.
+    2. Changing permission by numberical method.
+
+                 [owner]    [group]         [modify date.]
+    drwxr-xr-x 5 developer developer  4096 Dec 31 01:06 myapp
+    -rw-r--r-- 1 developer developer 13553 Dec 31 00:19 problem.jsx
+               |
+               |_ total directory inside this directory.
+
+    Changing permission by Symbolic method.
+    --------------------------------------
+
+    Symbolic method
+    Abbreviation | Description                   | Operator  |       Description
+        u        | user access                   |    +      |       add access
+        g        | group access                  |    -      |       remove
+        o        | ogher system user's access    |    =      |   access explicitly assigned.
+        A        | Equivalent to "ugo", for all  |           |    
+
+    chmod Command 
+        the chmod command stands for "change mode", and allow changing permission o files
+        And folders using symbolic or numberic method.
+
+        Symbolic method to change Permission:
+            #chmod u+x fileName
+            #chmod g+w fileName
+            #chmod o+w fileName
+            #chmod u-x fileName
+            #chmod u=g fileName all group permission assign to user.
+        
+        chmod g+w f1        //to group assign write permission.
+        chmod a-x  demo     //remove execute permission to all.
+        chmod a+w demo      //add write permission to all.
+        chmod g=u demo      //users permission assign to group.
+
+
+    Changing permission by numberical method:
+
+            Number      Permission                  Symbol      Binary Code
+              0         No permission                 ___           000 [0]
+              1         Execute permission            __x           001 [1]
+              2         write permission              _w_           010 [2]
+              3         write and execute             _wx           011 [3]
+              4         Read permission               r__           100 [4]
+              5         Read & execute                r_x           101 [5]
+              6         Read and write                rw_           110 [6]
+              7         Read,write and execute        rwx           111 [7]
+
+
+        Example:    
+            #chmod 600 fileName (owner can read and write)
+            #chmod 666 fileName (All can read and write)
+            #chmod 777 fileName (All can read, write and execute)
+
+
+    
+
+    * How to change the ownership of the file.?
+
+    chwon command:
+        the chown stands for "Change Owner".[whoes create file that is owner.]
+        the chown command changes user ownership of a file, directory, or link in linux.
+        Every file is associated with an owning user or gourp.
+
+        Examples:
+            #chown fs fileName    fs -> username
+            #chown :fs fileName   fs: ->username    :fs->groupName
+            #chown fs:fs fileName
+
+    chgrp command:
+        * chgrp stands for "chanage group"
+        * chgrp command in Linux is used to change the group ownership of a file or directory
+            #chgrp new-grp fileName.
+
+
+
+    umask :
+        * Umask, or the user file-creation mode, is a linux command that is used to assign the default
+        file permission sets for newly created directory and files. Most of the linux distro give 022(0022)
+        as default UMASK. In other words, it is a system default permission for newly created files/directory
+        int the machine.
+
+         * The minium and maximum UMASK value for a directory is 000 and 777
+         * The minimum and maximum UMASK value for a file is 000 and 666
+
+    umask       //show your machine umask.
+    umask 044   //change umask by 044.
+    now permission is 777-044 = 733 = wrx _wx _wx.
+
+
+
+    --------------------------------------Linux Services--------------------------
+            -Apache(default port no->80 http service)
+            -SSH (means secure shell used port no 22)
+            -FTP(file transer protocol, used port-> 20 or 21).
+
+
+
+
+
+
+    ----------------------------- Archive and Compressing Files ---------------------
+    What is Archiving: is the process of combining multiple files and directories (same or different sizes) into
+    one file. Archiving is usually used as part of a system backup or when moving data from one system to another.
+            in Archiving size are not change.
+
+            Tar [take archiver] command option:
+
+                Tar's option  -         Description
+                -c            -         Create a new .tar archive file.
+                -v            -         Verbosely show the .tar file progress.
+                -f            -         file name type of the archive file.
+                -j            -         create a compressed bzip2 archive file.
+                -z            -         create a compressed gzip archive file.
+                -J            -         create a compressed XZ archive file.
+                -x            -         Extract the archive.
+                -t            -         displays or lists files in archived file.
+
+    
+
+    tar -cvf file.tar  f1
+    tar -cvf file2.tar f1 f2 dir dir2 test.text .... //all content come together in file2.tar.
+    tar -tvf  fileName.tar      //show fileName.tar content.
+    tar -xvf file2.tar          //extract data.
+
+
+    ---------compressed
+    tar -cvjf file4.tbz2 dir
+    tar -tvjf file4.tbz2    //list down file4.tbz
+
+    tar -cvzf file4.tgz f1 f2....
+    tar -xvzf file4.tgz //extract data.
+
+    tar -cJvf file4.txz f7 f8 f9....
+    tar -xvJvf file4.txz  //extract data.
+
+
+    tar -xvf file1.tar -C address_after_extract.
+
+
+    * on the other hand, compression is the process of reducing the size of a file or directory. Compression tools are:
+        1.Gzip(.tar.gz)
+        2.bzip2(.tar.bz2)
+        3.xz(.tar.xz)
+
+        Commpression Tools          Commands            Explanation
+        gzip                        #gzip file          Compressed file with gzip
+        gunzip                      #gunzip file.gz     Extract file with gunzip
+        xz                          #xz file            Compress file with xz.
+        unxz                        #unxz file.xz       Extract file with unxz
+        bzip2                       #bzip2 file         Compress file with bzip2.
+        bunzip2                     #bunzip2 file.bz2   Extract file with bunzip2.
+
+
+
+----------------------------- How to install Java in Linux --------------------
+    java --version          //check java version 
+    sudo dpkg -i jdk-17.deb     //install djk.deb package.
+    ls /usr/lib/jvm/            //show you all jdk version 
+    sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk-17/bin/java 1        //set java.
+    sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/jdk-17/binjavac 1      //set javac.
+
+
+    javac --version         //show javac version.
+
+
+    ----------set java home variable environment.
+    sudo update-alternatives --config java              //give you location of all java version install.
+    sudo vim /etc/envirnment                            //in this file bottom. 
+    write  : JAVA_HOME="/usr/lib/jvm/jdk-17"            //save and exit.
+    source /etc/environment                             //refresh all path.
+    echo $JAVA_HOME                                     //give you path for set java home.  
+
+
+------------------------------ How can we do formate pendrive in linux -------------------
+df -lh      //check path for pendrive
+
+1. first of all unmount pendrive--------
+    sudo umount /dev/sdb1 
+
+2. now formate--------
+    sudo mkfs.vfat -F 32 /dev/sdb1
+
+To set a file system label for your pen drive in the process:
+    sudo mkfs.vfat -F 32 -n 'name_for_your_pendrive' /dev/sdb1
+
+    * -F 32 part to specify the FAT size, it is not 32 by default 
+    * -n "Name for pendrive"
+
+    According to File System:
+    1. FAT32
+        sudo mkfs.vfat /dev/sdb1
+
+    2. NTFS
+        sudo mkfs.ntfs /dev/sdb1
+
+    3.exFAT
+        sudo mkfs.exfat /dev/sdb1
+
+    
+    Note: other way for formating pendrive.
+        1. disk utility in linux system.
+        2. install Gparted tool [sudo apt install gparted]
+            it is GUI way.
+
+
+------------------------------- How to make bootable pendrive in linux --------------------
+sudo umount /dev/sdb
+sudo dd if=/path/to/ubuntu.iso of=/path/to/pendrive bs=1M status=progress 
+
+complete command:
+    sudo dd if=ubuntu-20.04.1-live-server-amd64.iso of=/dev/sda bs=1M status=progress
+
+    * dd: command to write DVD/CD iso images.
+    * if=/is/ubuntu.iso : path to input file.
+    * of=/dev/sdd : path to destination USB disk/stick
+    * bs=1M : read and write up to bytes at a time. In this example, 1M at a time.
+    * status=progress : Display progress bar while writing images to the USB stick
+      such as /dev/sdb1.
+      

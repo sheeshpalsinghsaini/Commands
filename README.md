@@ -1,5 +1,6 @@
 # Commands
 
+<<<<<<< HEAD
 
 # ====================================================== Basic of Git ==========================================================
 
@@ -83,3 +84,5 @@
                 git log --since="30/01/2022"        //show all commits after give date.
                 git log --until="01/02/2022"        //show all commits till give date.
 
+=======
+>>>>>>> b14927c9d39ce62ee8a08226d171c9a206df0c63

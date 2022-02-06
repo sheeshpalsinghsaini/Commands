@@ -47,6 +47,7 @@
                 git push -u origin              //push content to origin in default branch
                 git push -u origin master       //push into origin master branch.
 
+                git rm --cached file1.text file2.text   //remove file from stagin area.
                 
 
 
@@ -91,6 +92,15 @@
 
 
 
+  ## Remove Staging file by git:
+        git clean -n            //show all untracked files.
+        git clean -d            //delete all untracked files.
+        git clean -i -d         //provide some option for deleting files.
+
+
+
+
+
   ## Showing changes Between WorkingDirectory & StaginArea,WD & LR, SA & LA:->
         git diff            //show changes between WD & SA
         git diff --staged   //show changes between SA & LA
@@ -98,6 +108,8 @@
 
         git diff HEAD       //show diff between WD & LA
         git diff head
+
+
 
 
 
@@ -118,9 +130,9 @@
     Note: revert is better than reset.
 
         when we are using *reset* command it have two option.
-            - --hard : remove form everywhere commits.
-            - --soft : 
-            - --mixed
+            - --hard : remove file form everywhere commits.
+            - --soft : remove file from commit but present in staging area and working directory.
+            - --mixed : 
 
   ## Using --hard option with *reset*: ->
         git reset --hard HashCode_put_here      //remove permanantly latest commit.[from wd,sa,ra].
@@ -131,3 +143,13 @@
         Now we need to push force-fully push.
 
         git push -f -u origin main      //push forcefully code in remote repo.
+
+  ## Using --soft option with *reset*:->
+        git reset --soft hashCode_provide_here
+        //move changes into staging area.
+
+ ## Using --mixed option with *reset*:->
+        move content only into working directory[untracked file].
+
+        git reset --mixed HashCode_provide_here
+    

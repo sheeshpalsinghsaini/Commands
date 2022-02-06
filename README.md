@@ -86,3 +86,48 @@
 
 =======
 >>>>>>> b14927c9d39ce62ee8a08226d171c9a206df0c63
+
+
+
+
+
+  ## Showing changes Between WorkingDirectory & StaginArea,WD & LR, SA & LA:->
+        git diff            //show changes between WD & SA
+        git diff --staged   //show changes between SA & LA
+        or git diff --cached 
+
+        git diff HEAD       //show diff between WD & LA
+        git diff head
+
+
+
+  ## Reset Command:->
+        reset move head from current commit to revious with remove current commits.
+
+        9c58c30 (HEAD -> main, origin/main, origin/HEAD) update readme.md file
+        17c6e81 update Readme.md file
+        b14927c Update README.md
+        378930f Update README.md
+        8fecb5a Update README.md            ----> we want to move here head and remove all latest commit after it.
+        3fabd53 Update README.md
+        65875e9 updated files
+        2ef9ca9 first time update
+        f61b70f Initial commit
+
+
+    Note: revert is better than reset.
+
+        when we are using *reset* command it have two option.
+            - --hard : remove form everywhere commits.
+            - --soft : 
+            - --mixed
+
+  ## Using --hard option with *reset*: ->
+        git reset --hard HashCode_put_here      //remove permanantly latest commit.[from wd,sa,ra].
+
+        //it is not remove from remote repo for remove there push current commit in remote repo.
+        //it show an error for your branch is behind from remote repo.
+
+        Now we need to push force-fully push.
+
+        git push -f -u origin main      //push forcefully code in remote repo.
